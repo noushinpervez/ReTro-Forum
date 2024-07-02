@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReTro Forum</title>
+    <!-- tailwind and daisyUI cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- mulish and inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./images/penguin.png" type="image/png">
+
+    <style>
+        .mulish {
+            font-family: "Mulish", sans-serif;
+        }
+
+        .inter {
+            font-family: "Inter", sans-serif;
+        }
+    </style>
+    <!-- tailwind custom colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                        primaryColor: '#12132D',
+                        secondaryColor: 'rgb(18, 19, 45)',
+                        btnBorder: 'rgb(3, 7, 18)',
+                        primaryBtnBg: '#797DFC',
+                        txtGradient: 'rgb(121, 125, 252)',
+                        hrBg: 'rgb(48, 50, 94)',
+                        postBg: '#F3F3F5',
+                        postBorder: '#797DFC',
+                        postHover: 'rgb(121, 125, 252)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="mulish">
+    <header class="container w-11/12 lg:w-4/5 mx-auto mt-6 lg:mt-12">
+        <!-- navbar section -->
+        <div class="navbar">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost md:hidden lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="0" class="menu menu-sm bg-primaryColor text-white dropdown-content z-[1] rounded-box">
+                        <li><a>Home</a></li>
+                        <li><a>Edit</a></li>
+                        <li><a>Add</a></li>
+                        <li><a>Bookmarks</a></li>
+                    </ul>
+                </div>
+                <a class="btn btn-ghost text-2xl lg:text-4xl text-primaryColor font-black">ReTro</a>
+            </div>
+            <div class="navbar-end md:flex lg:flex gap-4">
+                <!-- home button -->
+                <div class="lg:flex hidden tooltip tooltip-bottom" data-tip="Home">
+                    <div tabindex="0" role="button" class="btn btn-circle bg-secondaryColor/3 border-btnBorder/10">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M2.25 12.0001L11.204 3.04507C11.644 2.60607 12.356 2.60607 12.795 3.04507L21.75 12.0001M4.5 9.75007V19.8751C4.5 20.4961 5.004 21.0001 5.625 21.0001H9.75V16.1251C9.75 15.5041 10.254 15.0001 10.875 15.0001H13.125C13.746 15.0001 14.25 15.5041 14.25 16.1251V21.0001H18.375C18.996 21.0001 19.5 20.4961 19.5 19.8751V9.75007M8.25 21.0001H16.5"
+                                stroke="#12132D" stroke-opacity="0.6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </div>
+                <!-- edit button -->
+                <div class="lg:flex hidden tooltip tooltip-bottom" data-tip="Edit">
+                    <div tabindex="0" role="button" class="btn btn-circle bg-secondaryColor/3 border-btnBorder/10">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16.862 4.487L18.549 2.799C18.9007 2.44733 19.3777 2.24976 19.875 2.24976C20.3723 2.24976 20.8493 2.44733 21.201 2.799C21.5527 3.15068 21.7502 3.62766 21.7502 4.125C21.7502 4.62235 21.5527 5.09933 21.201 5.451L6.832 19.82C6.30332 20.3484 5.65137 20.7367 4.935 20.95L2.25 21.75L3.05 19.065C3.26328 18.3486 3.65163 17.6967 4.18 17.168L16.863 4.487H16.862ZM16.862 4.487L19.5 7.125"
+                                stroke="#12132D" stroke-opacity="0.6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </div>
+                <!-- add button -->
+                <div class="lg:flex hidden tooltip tooltip-bottom" data-tip="Add">
+                    <div tabindex="0" role="button" class="btn btn-circle bg-secondaryColor/3 border-btnBorder/10">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M18 7.5V10.5M18 10.5V13.5M18 10.5H21M18 10.5H15M12.75 6.375C12.75 7.27011 12.3944 8.12855 11.7615 8.76149C11.1285 9.39442 10.2701 9.75 9.375 9.75C8.47989 9.75 7.62145 9.39442 6.98851 8.76149C6.35558 8.12855 6 7.27011 6 6.375C6 5.47989 6.35558 4.62145 6.98851 3.98851C7.62145 3.35558 8.47989 3 9.375 3C10.2701 3 11.1285 3.35558 11.7615 3.98851C12.3944 4.62145 12.75 5.47989 12.75 6.375ZM3 19.235V19.125C3 17.4342 3.67165 15.8127 4.86719 14.6172C6.06274 13.4216 7.68424 12.75 9.375 12.75C11.0658 12.75 12.6873 13.4216 13.8828 14.6172C15.0784 15.8127 15.75 17.4342 15.75 19.125V19.234C13.8255 20.3931 11.6206 21.0038 9.374 21C7.043 21 4.862 20.355 3 19.234V19.235Z"
+                                stroke="#12132D" stroke-opacity="0.6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </div>
+                <!-- flag button -->
+                <div class="lg:flex hidden tooltip tooltip-bottom" data-tip="Bookmarks">
+                    <div tabindex="0" role="button" class="btn btn-circle bg-secondaryColor/3 border-btnBorder/10">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M3 3V4.5M3 4.5L5.77 3.807C7.8544 3.28605 10.0564 3.52795 11.978 4.489L12.086 4.543C13.9688 5.4843 16.1219 5.73589 18.171 5.254L21.281 4.522C20.9029 8.01155 20.9046 11.5318 21.286 15.021L18.172 15.753C16.1227 16.2354 13.9692 15.9842 12.086 15.043L11.978 14.989C10.0564 14.028 7.8544 13.786 5.77 14.307L3 15M3 4.5V15M3 21V15"
+                                stroke="#12132D" stroke-opacity="0.6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="flex-none ml-2">
+                    <button class="btn rounded-full bg-primaryBtnBg text-white text-base lg:text-xl font-bold lg:px-10 hover:bg-primaryBtnBg/80 focus:ring-4 focus:ring-primaryBtnBg">Sign
+                        In</button>
+                </div>
+            </div>
+        </div>
+        <!-- banner section -->
+        <div class="hero bg-primaryColor rounded-[32px] p-[9%] mt-6 lg:mt-14 lg:bg-contain bg-no-repeat bg-bottom" style="background-image: url(./images/bgbanner.png);">
+            <div class="flex flex-col gap-2 lg:flex-row justify-between items-center w-full">
+                <!-- banner content -->
+                <div class="flex text-white flex-col gap-5 basis-1/2">
+                    <h1 class="text-3xl lg:text-6xl font-black" style="line-height: 135%;">Welcome to the <span
+                            class="text-transparent bg-clip-text bg-gradient-to-tr from-primaryBtnBg/100 to-txtGradient/0">ReTro</span> Forum</h1>
+                    <p class="text-white/80 lg:text-xl font-medium leading-9 lg:w-3/4">Join the ReTro Forum and share your unique perspective for a chance to win exclusive prizes! 🏆</p>
+                    <!-- search -->
+                    <div class="lg:w-3/4 mt-2 lg:mt-3">
+                        <label class="input input-md lg:input-lg input-bordered flex items-center rounded-full w-full justify-center relative">
+                            <input type="text" class="grow text-secondaryColor/80 text-sm" placeholder="Search here anything" id="search-field" />
+                            <div class="w-1/3 absolute right-1">
+                                <button onclick="handleSearch()"
+                                    class="btn btn-sm lg:btn-md bg-primaryBtnBg text-white rounded-full lg:text-xl font-bold hover:bg-primaryBtnBg/80 w-full focus:ring-4 focus:ring-primaryBtnBg">Search</button>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <!-- stat -->
+                <div id="stat" class="stats text-secondaryColor/80 font-medium text-base lg:text-2xl w-full lg:w-2/5 rounded-[32px] h-1/5 lg:inline-flex">
+                    <div class="flex justify-center w-4/5 mx-auto bg-white flex-col gap-1 lg:gap-6 py-[3%] lg:py-[12%]">
+                        <div class="flex justify-between">
+                            <p>Registered Users</p>
+                            <p>01</p>
+                        </div>
+                        <div class="flex justify-between">
+                            <p>Forum</p>
+                            <p>05</p>
+                        </div>
+                        <div class="flex justify-between">
+                            <p>Topics</p>
+                            <p>01</p>
+                        </div>
+                        <div class="flex justify-between">
+                            <p>Replies</p>
+                            <p>01</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- main section -->
+    <main class="container w-11/12 lg:w-4/5 mx-auto mt-6 lg:mt-12">
+        <!-- let's discuss section -->
+        <section>
+            <!-- let's discuss header -->
+            <div class="flex flex-col justify center items-center gap-3 lg:gap-6 text-center mb-6 lg:mb-12">
+                <h3 class="text-primaryColor text-xl lg:text-4xl font-black">Let's Discuss</h3>
+                <p class="text-secondaryColor/60 text-xs lg:text-lg w-11/12 lg:w-3/5 inter">Step into ReTro Forum 🚀, where conversations sparkle like ✨, and our community thrives on 🤣, 💡
+                    and 🎵. Join the vibe! 🌐</p>
+            </div>
+            <div class="flex flex-col lg:flex-row gap-6">
+                <!-- data loading indicator -->
+                <div id="data-loading" class="justify-center flex min-h-max hidden lg:w-4/6 lg:gap-6">
+                    <span class="loading loading-spinner text-primaryColor loading-lg"></span>
+                </div>
+                <!-- posts container -->
+                <div id="post-container" class="lg:w-4/6 flex flex-col gap-2 lg:gap-6 lg:max-w-[66%]"></div>
+                <!-- mark as read container -->
+                <div class="bg-secondaryColor/5 rounded-3xl flex-grow p-[2%] h-fit lg:max-w-[32%]" id="mark-as-read">
+                    <div class="flex justify-between">
+                        <h3 class="text-primaryColor text-base lg:text-xl font-bold">Title</h3>
+                        <div class="flex lg:gap-2 items-center">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_30_2429)">
+                                    <path d="M7 12L12 17L22 7" stroke="#3DCE09" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M2 12L7 17M12 12L17 7" stroke="#3DCE09" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_30_2429">
+                                        <rect width="24" height="24" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            <p class="text-secondaryColor/60 text-xs lg:text-base inter">Mark as read (<span id="read-count">0</span>)</p>
+                        </div>
+                    </div>
+                    <!-- post read cards -->
+                </div>
+            </div>
+        </section>
+        <!-- join forum section -->
+        <section>
+            <div class="rounded-[32px] bg-primaryColor flex flex-col lg:flex-row justify-between items-center gap-2 py-[4%] pl-[8%] pr-[3%] mt-12 lg:mt-24">
+                <!-- join forum content -->
+                <div class="flex flex-col gap-2 lg:gap-4">
+                    <h3 class="text-2xl lg:text-4xl text-white font-black">Join Our Forum</h3>
+                    <p class="text-white/80 text-xs lg:text-lg leading-7">Join the ReTro Forum and share your unique perspective for a chance to win exclusive prizes! 🏆 </p>
+                    <button
+                        class="btn rounded-full border-none bg-primaryBtnBg text-white text-xl font-bold px-10 hover:bg-primaryBtnBg/80 mt-2 lg:mt-4 lg:w-fit focus:ring-4 focus:ring-primaryBtnBg">Register
+                        Now</button>
+                </div>
+                <div class="w-1/2 lg:w-fit">
+                    <img src="./images/joinforum.png" alt="">
+                </div>
+            </div>
+        </section>
+        <!-- latest post section -->
+        <section>
+            <!-- latest post section header -->
+            <div class="flex flex-col justify center items-center gap-3 lg:gap-6 text-center mt-12 lg:mt-24 mb-6 lg:mb-12">
+                <h3 class="text-primaryColor text-xl lg:text-4xl font-black">Latest Posts</h3>
+                <p class="text-secondaryColor/60 text-xs lg:text-lg w-11/12 lg:w-3/5">Explore the freshest vibes on ReTro Forum! 🌟🔍 Join the buzz and connect with the community. 🚀💬 Dive
+                    into the conversation now! 🎉🌐</p>
+            </div>
+            <!-- latest post container -->
+            <div class="flex flex-col lg:flex-row gap-2 lg:gap-6" id="latest-post-container"></div>
+        </section>
+    </main>
+    <!-- footer section -->
+    <footer class="footer footer-center p-[5%] lg:p-[10%] bg-gradient-to-t from-secondaryColor/0 to-secondaryColor/5 rounded mt-12 lg:mt-24">
+        <nav>
+            <div class="flex flex-col gap-2 lg:gap-4 justify center items-center">
+                <h3 class="text-2xl lg:text-4xl text-primaryColor font-black">ReTro</h3>
+                <p class="text-secondaryColor/70 text-xs lg:text-lg leading-7">Discover the magic of ReTro Forum! 🌈✨ Join our vibrant community for lively discussions and good vibes. 🚀🔮
+                </p>
+            </div>
+        </nav>
+        <!-- social media icons -->
+        <nav>
+            <div class="grid grid-flow-col gap-3 lg:gap-6">
+                <!-- twitter -->
+                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                        <path
+                            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+                        </path>
+                    </svg></a>
+                <!-- facebook -->
+                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z">
+                        </path>
+                    </svg></a>
+                <!-- instagram -->
+                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg></a>
+                <!-- github -->
+                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg></a>
+            </div>
+        </nav>
+        <div class="border border-hrBg/10 w-full"></div>
+        <aside>
+            <p class="text-secondaryColor/50 font-light text-xs lg:text-base">2017, All Rights Reserved.</p>
+        </aside>
+    </footer>
+    <script src="./scripts/script.js"></script>
+</body>
+</html>
